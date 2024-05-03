@@ -1,0 +1,77 @@
+@startuml
+' skin rose
+' skinparam shadowing false
+skinparam classAttributeIconSize 0
+hide empty members
+set separator none
+
+package jcolonia.daw.ut6 <<frame>> {
+
+class ControlX {
+	- datos: ConjuntoX
+	+ ControlX()
+	+ buclePrincipal(): void
+	+ gestiónAltas(): void
+	+ gestiónListado(): void
+	+ gestiónExportar(): void
+	+ gestiónImportar(): void
+	+ gestiónNoImplementada(): void
+	+ {static} main(argumentos: String[*]): void
+}
+
+class ConjuntoX {
+	- lista: List<ElementoX>
+	+ ConjuntoX()
+	+ toTextoListado(): List<String>
+	+ toTextoCSV(): List<String>
+	+ toString(): String
+}
+
+class ElementoX {
+	- característica1: Tipo1
+	- característica2: Tipo2
+	- característica3: Tipo3
+	+ ElementoX()
+	+ getCaracterística1(): Tipo1
+	+ getCaracterística2(): Tipo2
+	+ getCaracterística3(): Tipo3
+	+ toLíneaListado(): String
+	+ toLíneaCSV(): String
+	+ toString(): String
+	+ {static} importarCSV(líneaCSV: String): ElementoX
+}
+
+
+class VistaGeneral {
+	- nombre: String
+	- {static} scEntrada: Scanner
+	+ {static} getScEntrada(): Scanner
+	+ {static} mostrarTexto(): void
+	+ {static} pedirConfirmación(pregunta: String): boolean
+	+ mostrarTítulo(resaltado: boolean): void
+	- generarLínea(carácter: char): String 
+}
+
+class VistaMenú {
+	- listaOpciones: String[*]
+	- conSalir: boolean
+	+ VistaMenú(nombre: String, listaOpciones: String[])
+	+ VistaMenú(nombre: String, listaOpciones: String[], conSalir: boolean)
+	+ mostrarMenú(): void
+	+ pedirOpción(): int
+}
+
+
+ControlX - ConjuntoX : gestiona >
+ConjuntoX o- ElementoX : contiene >
+
+ControlX ..> VistaMenú
+ControlX ..> VistaListado
+ControlX ..> VistaAltasX
+VistaMenú --|> VistaGeneral
+VistaListado --|> VistaGeneral
+VistaAltasX --|> VistaGeneral
+
+
+}
+@enduml

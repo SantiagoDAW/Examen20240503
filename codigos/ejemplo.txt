@@ -1,0 +1,206 @@
+(JDK21) C:\Users\dmartin\git\Quiniela1X2v2> java -cp bin jcolonia.daw2023.quiniela.LanzadorQuiniela1X2
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+
+==============
+Quiniela 1-X-2
+==============
+  1) Alta
+  2) Baja
+  3) Listado
+  4) Exportación
+  5) Importación
+  6) Borrado
+  0) SALIR
+Introduzca la opción elegida: 3
+*** ¡No hay ningún elemento que mostrar!
+
+Pulse «Intro» para continuar…
+
+==============
+Quiniela 1-X-2
+==============
+  1) Alta
+  2) Baja
+  3) Listado
+  4) Exportación
+  5) Importación
+  6) Borrado
+  0) SALIR
+Introduzca la opción elegida: 2
+*** ¡No hay ningún elemento que borrar!
+
+==============
+Quiniela 1-X-2
+==============
+  1) Alta
+  2) Baja
+  3) Listado
+  4) Exportación
+  5) Importación
+  6) Borrado
+  0) SALIR
+Introduzca la opción elegida: 5
+2 resultados importados
+  1: MADRID - BARÇA ............................ [-][-][2]
+  2: BURGOS - SEVILLA .......................... [-][X][-]
+
+Pulse «Intro» para continuar…
+
+==============
+Quiniela 1-X-2
+==============
+  1) Alta
+  2) Baja
+  3) Listado
+  4) Exportación
+  5) Importación
+  6) Borrado
+  0) SALIR
+Introduzca la opción elegida: 3
+  1: MADRID - BARÇA ............................ [-][-][2]
+  2: BURGOS - SEVILLA .......................... [-][X][-]
+
+Pulse «Intro» para continuar…
+
+==============
+Quiniela 1-X-2
+==============
+  1) Alta
+  2) Baja
+  3) Listado
+  4) Exportación
+  5) Importación
+  6) Borrado
+  0) SALIR
+Introduzca la opción elegida: 2
+  1: MADRID - BARÇA ............................ [-][-][2]
+  2: BURGOS - SEVILLA .......................... [-][X][-]
+Introduzca el número elegido o solo «Intro» para cancelar: 1
+
+  Partido a borrar:
+  MADRID - BARÇA ............................ [-][-][2]
+¿Desea realmente eliminar el partido? (S/N): s
+  1: BURGOS - SEVILLA .......................... [-][X][-]
+
+Pulse «Intro» para continuar…
+
+==============
+Quiniela 1-X-2
+==============
+  1) Alta
+  2) Baja
+  3) Listado
+  4) Exportación
+  5) Importación
+  6) Borrado
+  0) SALIR
+Introduzca la opción elegida: 1
+
+¿? - ¿? ................................... [ ][ ][ ]
+Introduce equipo local:
+    *** Dato vacío
+
+¿? - ¿? ................................... [ ][ ][ ]
+Introduce equipo local:
+    *** Dato vacío
+
+¿? - ¿? ................................... [ ][ ][ ]
+Introduce equipo local: Villalvilla de los Llanos de Burgos
+    *** Nombre demasiado largo
+
+¿? - ¿? ................................... [ ][ ][ ]
+Introduce equipo local: V
+    *** Nombre demasiado corto
+
+¿? - ¿? ................................... [ ][ ][ ]
+Introduce equipo local: Billalvilla
+
+BILLALVILLA - ¿? .......................... [ ][ ][ ]
+Introduce equipo visitante: VToro
+
+BILLALVILLA - VTORO ....................... [ ][ ][ ]
+Introduce resultado: x
+
+Entrada completa → BILLALVILLA - VTORO ....................... [-][X][-]
+¿Desea almacenar el partido? (S/N): n
+    *** Entrada descartada
+  1: BURGOS - SEVILLA .......................... [-][X][-]
+
+Pulse «Intro» para continuar…
+
+==============
+Quiniela 1-X-2
+==============
+  1) Alta
+  2) Baja
+  3) Listado
+  4) Exportación
+  5) Importación
+  6) Borrado
+  0) SALIR
+Introduzca la opción elegida: 1
+
+¿? - ¿? ................................... [ ][ ][ ]
+Introduce equipo local: Leverkusen
+
+LEVERKUSEN - ¿? ........................... [ ][ ][ ]
+Introduce equipo visitante: Villatoro
+
+LEVERKUSEN - VILLATORO .................... [ ][ ][ ]
+Introduce resultado: 2
+
+Entrada completa → LEVERKUSEN - VILLATORO .................... [-][-][2]
+¿Desea almacenar el partido? (S/N): s
+  1: BURGOS - SEVILLA .......................... [-][X][-]
+  2: LEVERKUSEN - VILLATORO .................... [-][-][2]
+
+Pulse «Intro» para continuar…
+
+==============
+Quiniela 1-X-2
+==============
+  1) Alta
+  2) Baja
+  3) Listado
+  4) Exportación
+  5) Importación
+  6) Borrado
+  0) SALIR
+Introduzca la opción elegida: 4
+2 resultados exportados
+
+==============
+Quiniela 1-X-2
+==============
+  1) Alta
+  2) Baja
+  3) Listado
+  4) Exportación
+  5) Importación
+  6) Borrado
+  0) SALIR
+Introduzca la opción elegida: 5
+2 resultados importados
+  1: BURGOS - SEVILLA .......................... [-][X][-]
+  2: LEVERKUSEN - VILLATORO .................... [-][-][2]
+
+Pulse «Intro» para continuar…
+
+==============
+Quiniela 1-X-2
+==============
+  1) Alta
+  2) Baja
+  3) Listado
+  4) Exportación
+  5) Importación
+  6) Borrado
+  0) SALIR
+Introduzca la opción elegida: 0
+*** FIN ***
+
+(JDK21) C:\Users\dmartin\git\Quiniela1X2v2> type "Almacén Quiniela1X2.txt"
+BURGOS#SEVILLA#X
+LEVERKUSEN#VILLATORO#2
+
+(JDK21) C:\Users\dmartin\git\Quiniela1X2v2>
