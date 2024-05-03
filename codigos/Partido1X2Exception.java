@@ -5,9 +5,11 @@ package jcolonia.daw2023.quiniela;
  * incorrectos no válidos.
  * 
  * @version 1.1 (20240502000)
+ * 
  * @author <a>Santiago Santamaría Martín</a>
  */
-public class DatoPartido1X2Exception extends Exception {
+public class Partido1X2Exception extends Exception {
+	
 	/**
 	 * Número de serie, asociado a la versión de la clase.
 	 */
@@ -19,7 +21,7 @@ public class DatoPartido1X2Exception extends Exception {
 	 * 
 	 * @see Exception#Exception()
 	 */
-	public DatoPartido1X2Exception() {
+	public Partido1X2Exception() {
 		super();
 	}
 
@@ -29,7 +31,7 @@ public class DatoPartido1X2Exception extends Exception {
 	 * @param mensaje el texto correspondiente.
 	 * @see Exception#Exception(String)
 	 */
-	public DatoPartido1X2Exception(String mensaje) {
+	public Partido1X2Exception(String mensaje) {
 		super(mensaje);
 	}
 
@@ -41,7 +43,7 @@ public class DatoPartido1X2Exception extends Exception {
 	 * @param causa la excepción –o {@link Throwable}– correspondiente
 	 * @see Exception#Exception(Throwable)
 	 */
-	public DatoPartido1X2Exception(Throwable causa) {
+	public Partido1X2Exception(Throwable causa) {
 		super(causa);
 	}
 
@@ -54,7 +56,7 @@ public class DatoPartido1X2Exception extends Exception {
 	 * @param causa   la excepción –o {@link Throwable}– correspondiente
 	 * @see Exception#Exception(String, Throwable)
 	 */
-	public DatoPartido1X2Exception(String mensaje, Throwable causa) {
+	public Partido1X2Exception(String mensaje, Throwable causa) {
 		super(mensaje, causa);
 	}
 
@@ -71,7 +73,7 @@ public class DatoPartido1X2Exception extends Exception {
 	 * @see Throwable#fillInStackTrace()
 	 * @see Throwable#addSuppressed(Throwable)
 	 */
-	public DatoPartido1X2Exception(String mensaje, Throwable causa, boolean habilitarSupresión,
+	public Partido1X2Exception(String mensaje, Throwable causa, boolean habilitarSupresión,
 			boolean trazaPilaEditable) {
 		super(mensaje, causa, habilitarSupresión, trazaPilaEditable);
 	}

@@ -6,7 +6,7 @@ package jcolonia.daw2023.quiniela;
  * @see ControladorQuiniela1X2
  * 
  * @version 1.1 (20240502000)
- * @author <a href="mailto:dmartin.jcolonia@gmail.com">David H. Martín</a>
+ * @author <a>Santiago Santamaría Martín</a>
  */
 public class LanzadorQuiniela1X2 {
 	/**

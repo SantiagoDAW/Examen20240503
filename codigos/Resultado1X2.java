@@ -4,7 +4,7 @@ package jcolonia.daw2023.quiniela;
  * Enumeración con los tres resultados posibles en una «Quiniela 1X2».
  * 
  * @version 1.1 (20240502000)
- * @author <a href="mailto:dmartin.jcolonia@gmail.com">David H. Martín</a>
+ * @author <a>Santiago Santamaría Martín</a>
  */
 public enum Resultado1X2 {
 	/** Opción de resultado tipo 1-X-2: victoria del equipo local «1». */

@@ -2,8 +2,6 @@ package jcolonia.daw2023.quiniela;
 
 import static java.lang.System.out;
 
-import java.util.List;
-
 /**
  * Controlador: Aplicación de gestión de resultados deportivos de tipo 1X2.
  * Gestiona las distintas funciones del menú principal.
@@ -11,11 +9,9 @@ import java.util.List;
  * @see ElementoPartido1X2
  * 
  * @version 1.1 (20240502000)
- * @author <a href="mailto:dmartin.jcolonia@gmail.com">David H. Martín</a>
+ * @author <a>Santiago Santamaría Martín</a>
  */
 public class ControladorQuiniela1X2 {
-	/** Nombre del archivo de datos para impotación/exportación. */
-	private static final String NOMBRE_ARCHIVO = "Almacén Quiniela1X2.txt";
 	/** Opciones del menú principal. */
 	private static final String[] TXT_MENÚ_PRINCIPAL = { "Alta", "Baja", "Listado", "Exportación", "Importación",
 			"Borrado" };
@@ -38,7 +34,7 @@ public class ControladorQuiniela1X2 {
 		int n = 0;
 		boolean salir = false;
 
-		menú = new VistaMenú("Quiniela 1-X-2", TXT_MENÚ_PRINCIPAL);
+		menú = new VistaMenú("Quiniela 1-X-2", TXT_MENÚ_PRINCIPAL,null);
 
 		do {
 			menú.mostrarTítuloPrincipal();
@@ -56,11 +52,8 @@ public class ControladorQuiniela1X2 {
 			case 3: // Listado
 				listado();
 				break;
-			case 4: // Exportación
-				exportación(NOMBRE_ARCHIVO);
-				break;
-			case 5: // Importación
-				importación(NOMBRE_ARCHIVO);
+			case 4: // Importación
+				borrado();
 				break;
 			case 0:
 				finalizar(); // Finalizar programa
@@ -71,6 +64,14 @@ public class ControladorQuiniela1X2 {
 				break;
 			}
 		} while (!salir);
+	}
+	
+	/** 
+	 * Elimina todos los datos en la quiniela. 
+	 */
+	private void borrado() {
+		BorrarLista borrar = new BorrarLista();
+		borrar.borrado(listaResultados);
 	}
 
 	/**
@@ -121,81 +122,6 @@ public class ControladorQuiniela1X2 {
 
 		dlg.mostrar(listaResultados.generarListado());
 		VistaGeneral.preguntaSeguir();
-	}
-
-	/**
-	 * Realiza el volcado de todas las partidos almacenados a un archivo de texto.
-	 * Emplea un formato propio –de estilo CSV con separador «#»– que puede ser
-	 * recuperado posteriormente (ver {@link #importación(String)}). En caso de
-	 * producirse algún error de acceso se envía el mensaje a la salida de error
-	 * estándar y el programa continua.
-	 * 
-	 * @param rutaArchivo el nombre o ruta al archivo
-	 */
-	private void exportación(String rutaArchivo) {
-		AccesoArchivo archivo;
-		List<String> listaTextosCSV;
-		int númElementos;
-		String mensaje;
-
-		boolean bienGrabado = false;
-
-		listaTextosCSV = listaResultados.generarListadoCSV();
-		númElementos = listaTextosCSV.size();
-
-		if (númElementos == 0) {
-			VistaGeneral.mostrarAviso("No hay ningún resultado que exportar");
-		} else {
-			archivo = new AccesoArchivo(rutaArchivo);
-			bienGrabado = archivo.escribir(listaTextosCSV);
-
-			if (bienGrabado) {
-				mensaje = String.format("%d resultados exportados", númElementos);
-				VistaGeneral.mostrarTexto(mensaje);
-			}
-		}
-	}
-
-	/**
-	 * Importa partidos almacenados en un archivo de texto reemplazando el contenido
-	 * actual del programa. Emplea un formato propio –de estilo CSV con separador
-	 * «#»– producido por una exportación previa (ver {@link #exportación(String)}).
-	 * En caso de producirse algún error de acceso o por el propio formato del
-	 * archivo, se envía el mensaje a la salida de error estándar y el programa
-	 * continúa sin perder el contenido anterior.
-	 * 
-	 * @param rutaArchivo el nombre o ruta al archivo
-	 */
-	private void importación(String rutaArchivo) {
-		AccesoArchivo archivo;
-		ConjuntoQuiniela1X2 nuevaLista;
-		ElementoPartido1X2 nuevoElemento;
-		List<String> contenido;
-		int númElementos;
-		String mensaje;
-
-		try {
-			archivo = new AccesoArchivo(rutaArchivo);
-			contenido = archivo.leer();
-			númElementos = contenido.size();
-
-			if (númElementos == 0) {
-				VistaGeneral.mostrarAviso("No hay ningún elemento que importar");
-			} else {
-				nuevaLista = new ConjuntoQuiniela1X2();
-				for (String línea : contenido) {
-					nuevoElemento = ElementoPartido1X2.of(línea);
-					nuevaLista.agregarElemento(nuevoElemento);
-				}
-				listaResultados = nuevaLista;
-
-				mensaje = String.format("%d resultados importados", númElementos);
-				VistaGeneral.mostrarTexto(mensaje);
-				listado();
-			}
-		} catch (DatoPartido1X2Exception ex) {
-			System.err.printf("Error de importación: %s%n", ex.getLocalizedMessage());
-		}
 	}
 
 	/**

@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
  * control de las entradas…
  * 
  * @version 2023.6.1 (1.0)
- * @author <a href="dmartin.jcolonia@gmail.com">David H. Martín</a>
+ * @author <a>Santiago Santamaría Martín</a>
  */
 class TestBásicosElementoPartido1X2 {
 	/**
@@ -39,10 +39,11 @@ class TestBásicosElementoPartido1X2 {
 	 * </ul>
 	 * 
 	 * @throws DatoPartido1X2Exception no esperada
+	 * @throws Partido1X2Exception no esperada
 	 */
 	@Test
 	@DisplayName("Carga y consulta de datos")
-	public void testCargaConsultaCorrectas() throws DatoPartido1X2Exception {
+	public void testCargaConsultaCorrectas() throws DatoPartido1X2Exception, Partido1X2Exception {
 		ElementoPartido1X2 partido;
 
 		String equipoA = "EQUIPO A";
@@ -66,12 +67,13 @@ class TestBásicosElementoPartido1X2 {
 	 * resultado devueltos ̣—métodos getXXX()— son correctos.
 	 * 
 	 * @throws DatoPartido1X2Exception no esperada
+	 * @throws Partido1X2Exception no esperada
 	 * 
 	 * @see #testCargaConsultaCorrectas()
 	 */
 	@Test
 	@DisplayName("Factoría y consulta de datos")
-	public void testCargaFactoríaConsultaCorrectas() throws DatoPartido1X2Exception {
+	public void testCargaFactoríaConsultaCorrectas() throws DatoPartido1X2Exception, Partido1X2Exception {
 		ElementoPartido1X2 partido;
 
 		String equipoA = "EQUIPO A";
@@ -97,10 +99,11 @@ class TestBásicosElementoPartido1X2 {
 	 * </pre>
 	 * 
 	 * @throws DatoPartido1X2Exception no esperada
+	 * @throws Partido1X2Exception no esperada
 	 */
 	@Test
 	@DisplayName("Conversión nombres a mayúsculas")
-	public void testCargaConsultaMinúsculas() throws DatoPartido1X2Exception {
+	public void testCargaConsultaMinúsculas() throws DatoPartido1X2Exception, Partido1X2Exception {
 		ElementoPartido1X2 partido;
 
 		String equipoA = "equipo a";

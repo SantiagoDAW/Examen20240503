@@ -8,7 +8,7 @@ import java.util.Vector;
  * Modelo: Colección básica de resultados deportivos en formato de quiniela 1X2.
  * 
  * @version 1.1 (20240502000)
- * @author <a href="mailto:dmartin.jcolonia@gmail.com">David H. Martín</a>
+ * @author <a>Santiago Santamaría Martín</a>
  */
 public class ConjuntoQuiniela1X2 {
 	/**
@@ -93,8 +93,9 @@ public class ConjuntoQuiniela1X2 {
 	 * @see ElementoPartido1X2#toStringCSV()
 	 * 
 	 * @return la lista de textos correspondiente
+	 * @throws Partido1X2Exception si los datos están todavía incompletos.
 	 */
-	public List<String> generarListadoCSV() {
+	public List<String> generarListadoCSV() throws Partido1X2Exception {
 		List<String> listaTextos;
 		listaTextos = new ArrayList<String>(lista.size());
 
@@ -102,5 +103,10 @@ public class ConjuntoQuiniela1X2 {
 			listaTextos.add(resultado.toStringCSV());
 		}
 		return listaTextos;
+	}
+	
+	/** Limpia la lista. */
+	public void limpiar() {
+		lista.clear();
 	}
 }

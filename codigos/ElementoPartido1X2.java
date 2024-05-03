@@ -5,7 +5,7 @@ package jcolonia.daw2023.quiniela;
  * de quiniela 1X2.
  * 
  * @version 1.1 (20240502000)
- * @author <a href="mailto:dmartin.jcolonia@gmail.com">David H. Martín</a>
+ * @author <a>Santiago Santamaría Martín</a>
  */
 public class ElementoPartido1X2 {
 	/**
@@ -64,7 +64,7 @@ public class ElementoPartido1X2 {
 	 *                                 rellenar
 	 * @throws Partido1X2Exception     si todos los datos ya están completos.
 	 */
-	public void setDato(String texto) throws DatoPartido1X2Exception {
+	public void setDato(String texto) throws DatoPartido1X2Exception, Partido1X2Exception {
 		verificarTextoNoNulo(texto);
 
 		// Comprobamos de forma implícita númValores
@@ -163,8 +163,9 @@ public class ElementoPartido1X2 {
 	/**
 	 * Verifica que todos los datos del partido estén ya cerrados y lanza una
 	 * {@link Partido1X2Exception} en caso contrario.
+	 * @throws Partido1X2Exception si todos los datos ya están completos.
 	 */
-	public void verificarCerrada() {
+	public void verificarCerrada() throws Partido1X2Exception {
 		if (!estáCerrada()) {
 			throw new Partido1X2Exception("Datos de partido todavía incompletos");
 		}
@@ -173,8 +174,9 @@ public class ElementoPartido1X2 {
 	/**
 	 * Verifica que el partido admita todavía valores para su compleción y lanza una
 	 * {@link Partido1X2Exception} en caso contrario.
+	 * @throws Partido1X2Exception si los datos están todavía incompletos.
 	 */
-	public void verificarAbierta() {
+	public void verificarAbierta() throws Partido1X2Exception {
 		if (estáCerrada()) {
 			throw new Partido1X2Exception("Datos partido ya están completos");
 		}
@@ -183,11 +185,11 @@ public class ElementoPartido1X2 {
 	/**
 	 * Proporciona el nombre del primer equipo, el equipo local.
 	 * 
-	 * @throws Partido1X2Exception si los datos están todavía incompletos
+	 * @throws Partido1X2Exception si los datos están todavía incompletos.
 	 * @return el valor correspondiente
 	 *
 	 */
-	public String getEquipoLocal() {
+	public String getEquipoLocal() throws Partido1X2Exception {
 		verificarCerrada();
 		return equipoLocal;
 	}
@@ -199,7 +201,7 @@ public class ElementoPartido1X2 {
 	 * @return el valor correspondiente
 	 *
 	 */
-	public String getEquipoVisitante() {
+	public String getEquipoVisitante() throws Partido1X2Exception {
 		verificarCerrada();
 		return equipoVisitante;
 	}
@@ -207,11 +209,11 @@ public class ElementoPartido1X2 {
 	/**
 	 * Proporciona el resultado.
 	 * 
-	 * @throws Partido1X2Exception si los datos están todavía incompletos
+	 * @throws Partido1X2Exception si los datos están todavía incompletos.
 	 * @return el valor correspondiente
 	 *
 	 */
-	public Resultado1X2 getResultado() {
+	public Resultado1X2 getResultado() throws Partido1X2Exception {
 		verificarCerrada();
 		return resultado;
 	}
@@ -231,8 +233,9 @@ public class ElementoPartido1X2 {
 	 * @throws DatoPartido1X2Exception si alguno de los datos no encaja en la
 	 *                                 posición correspondiente
 	 * @return el nuevo partido creado
+	 * @throws Partido1X2Exception si el texto no tiene el formato correcto.
 	 */
-	public static ElementoPartido1X2 of(String líneaCSV) throws DatoPartido1X2Exception {
+	public static ElementoPartido1X2 of(String líneaCSV) throws DatoPartido1X2Exception, Partido1X2Exception {
 		ElementoPartido1X2 nuevoPartido;
 		nuevoPartido = new ElementoPartido1X2();
 
@@ -263,9 +266,10 @@ public class ElementoPartido1X2 {
 	 * @throws DatoPartido1X2Exception si alguno de los datos no encaja en la
 	 *                                 posición correspondiente
 	 * @return el nuevo partido creado
+	 * @throws Partido1X2Exception si los datos están todavía incompletos.
 	 */
 	public static ElementoPartido1X2 of(String nombreLocal, String nombreVisitante, String resultadoPartido)
-			throws DatoPartido1X2Exception {
+			throws DatoPartido1X2Exception, Partido1X2Exception {
 		ElementoPartido1X2 nuevoPartido;
 		nuevoPartido = new ElementoPartido1X2();
 
@@ -338,8 +342,9 @@ public class ElementoPartido1X2 {
 	 * en formato pseudo CSV.
 	 * 
 	 * @return la línea completa
+	 * @throws Partido1X2Exception si los datos están todavía incompletos.
 	 */
-	public String toStringCSV() {
+	public String toStringCSV() throws Partido1X2Exception {
 		verificarCerrada();
 		StringBuffer texto = new StringBuffer();
 
